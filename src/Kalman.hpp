@@ -1,0 +1,6 @@
+namespace Kalman
+{
+    class Filter
+    {
+    };
+}

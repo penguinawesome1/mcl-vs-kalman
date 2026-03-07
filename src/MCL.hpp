@@ -1,0 +1,6 @@
+namespace MCL
+{
+    class Filter
+    {
+    };
+}
