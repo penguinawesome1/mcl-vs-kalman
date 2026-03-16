@@ -1,6 +1,5 @@
-namespace Kalman
-{
-    class Filter
-    {
-    };
-}
+namespace Kalman {
+
+class Filter {};
+
+}  // namespace Kalman
