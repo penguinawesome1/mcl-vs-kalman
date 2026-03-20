@@ -2,7 +2,7 @@ name: Compile to WASM and Deploy
 
 on:
   push:
-    branches: [main]
+    branches: [main, test-site]
   pull_request:
     branches: [main]
   workflow_dispatch:
@@ -26,7 +26,7 @@ jobs:
       - name: Setup emsdk
         uses: mymindstorm/setup-emsdk@v14
         with:
-          version: 1.38.40
+          version: "5.0.3"
           actions-cache-folder: "emsdk-cache"
 
       - name: Compile to WASM
