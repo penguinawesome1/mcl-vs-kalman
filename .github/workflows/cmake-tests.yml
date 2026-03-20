@@ -1,4 +1,4 @@
-name: C++. CMake Tests
+name: C++ CMake Tests
 
 on: [pull_request]
 
@@ -6,10 +6,10 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v4
-    - name: Configure CMake
-      run: cmake -B build -DCMAKE_BUILD_TYPE=Debug
-    - name: Build
-      run: cmake --build build --config Debug
-    - name: Test
-      run: ctest --test-dir build -C Debug --output-on-failure
+      - uses: actions/checkout@v4
+      - name: Configure CMake
+        run: cmake -B build -DCMAKE_BUILD_TYPE=Debug
+      - name: Build
+        run: cmake --build build --config Debug
+      - name: Test
+        run: ctest --test-dir build -C Debug --output-on-failure

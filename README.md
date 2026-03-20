@@ -9,3 +9,7 @@ cmake -S . -B build
 cmake --build build
 ctest --test-dir build -C Debug --output-on-failure
 ```
+
+## Credits
+
+Robot favicon from [Flaticon](https://www.flaticon.com/free-icon/robot_6134346#).
