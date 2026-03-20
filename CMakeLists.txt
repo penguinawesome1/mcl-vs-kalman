@@ -10,9 +10,6 @@ add_library(loc_logic
 )
 target_include_directories(loc_logic PUBLIC src)
 
-add_executable(loc_sim src/main.cpp)
-target_link_libraries(loc_sim PRIVATE loc_logic)
-
 include(FetchContent)
 FetchContent_Declare(
   googletest

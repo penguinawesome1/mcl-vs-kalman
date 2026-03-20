@@ -30,7 +30,7 @@ jobs:
           actions-cache-folder: "emsdk-cache"
 
       - name: Compile to WASM
-        run: emcc src/main.cpp -o demo/wasm_module.js -std=c++23 -s EXPORTED_RUNTIME_METHODS='["ccall", "cwrap"]'
+        run: emcc src/main.cpp src/MCL.cpp src/Kalman.cpp -Isrc -o demo/wasm_module.js -std=c++23 -s EXPORTED_RUNTIME_METHODS='["ccall", "cwrap"]'
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
