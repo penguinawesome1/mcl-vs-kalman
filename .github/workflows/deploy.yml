@@ -2,7 +2,7 @@ name: Compile to WASM and Deploy
 
 on:
   push:
-    branches: [main]
+    branches: [main, test-site]
   pull_request:
     branches: [main]
   workflow_dispatch:
