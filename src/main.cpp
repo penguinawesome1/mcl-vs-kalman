@@ -1,12 +1,21 @@
+#include <emscripten/emscripten.h>
+
+#include <iostream>
 #include <print>
 
 #include "Kalman.hpp"
 #include "MCL.hpp"
 
+extern "C" EMSCRIPTEN_KEEPALIVE void hello_world() {
+  std::println("Hello from hello_world!");
+  std::cout << std::flush;
+}
+
 int main() {
   Kalman::Filter kalman;
   MCL::Filter mcl;
 
-  std::println("Hello, World!");
+  std::println("Hello from main!");
+  std::cout << std::flush;
   return 0;
 }

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCL vs. Kalman Demo</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <script defer>
+        var Module = {
+            onRuntimeInitialized: () => {
+                Module.ccall(
+                'hello_world', // fn name
+                null, // return type 
+                [], // arg types
+                [] // arg vals
+            );
+        }
+    };
+    </script>
+    <script src="wasm_module.js" defer></script>
+</head>
+<body>
+    TEST TEXT
+</body>
+</html>
