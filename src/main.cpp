@@ -13,7 +13,7 @@ extern "C" EMSCRIPTEN_KEEPALIVE void hello_world() {
 }
 
 int main() {
-  Reader reader("../data/robot_log.csv");
+  Reader reader("data/robot_log.csv");
   Kalman::Filter kalman;
   MCL::Filter mcl;
 
