@@ -1,3 +1,5 @@
+#pragma once
+
 struct State {
   double time;
   Pose truth;

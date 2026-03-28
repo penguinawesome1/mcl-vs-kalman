@@ -1,3 +1,5 @@
+#pragma once
+
 #include <filesystem>
 #include <fstream>
 #include <iostream>
@@ -16,8 +18,10 @@ class Reader {
       throw std::runtime_error("Failed to open path");
     }
     std::string header;
-    std::getline(in_, header); // Throw away header text
-    if (header == "") { throw std::runtime_error("No data"); }
+    std::getline(in_, header);  // Throw away header text
+    if (header == "") {
+      throw std::runtime_error("No data");
+    }
   }
 
   auto bake_next_state() -> State {
