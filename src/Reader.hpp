@@ -15,15 +15,19 @@ class Reader {
     if (!in_) {
       throw std::runtime_error("Failed to open path");
     }
-    std::string _;
-    std::getline(in_, _); // Throw away header text
+    std::string header;
+    std::getline(in_, header); // Throw away header text
+    if (header == "") { throw std::runtime_error("No data"); }
   }
 
   auto bake_next_state() -> State {
+    std::string line;
+    std::getline(in_, line);
+    std::stringstream ss(line);
     std::string item;
 
     auto next_num = [&]() {
-      std::getline(in_, item, ',');
+      std::getline(ss, item, ',');
       return std::stod(item);
     };
 
