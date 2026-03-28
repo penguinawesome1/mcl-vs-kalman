@@ -4,13 +4,7 @@ namespace MCL {
 
 class Filter {
  public:
-  //   float example() { throw std::logic_error("Not implemented"); }
-
- private:
-  struct Particle {
-    double x, y, theta;
-    double weight;
-  };
+  float example() { throw std::runtime_error("Not implemented"); }
 };
 
 }  // namespace MCL

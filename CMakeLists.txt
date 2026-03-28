@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.30)
 project(mcl-vs-kalman)
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
@@ -28,7 +29,11 @@ add_executable(
 target_link_libraries(
   kalman_test
   GTest::gtest_main
+  loc_logic
 )
 
 include(GoogleTest)
 gtest_discover_tests(kalman_test)
+
+add_executable(mcl_app src/main.cpp)
+target_link_libraries(mcl_app PRIVATE loc_logic)
