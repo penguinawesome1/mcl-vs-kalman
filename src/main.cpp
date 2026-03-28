@@ -5,6 +5,7 @@
 
 #include "Kalman.hpp"
 #include "MCL.hpp"
+#include "Reader.hpp"
 
 extern "C" EMSCRIPTEN_KEEPALIVE void hello_world() {
   std::println("Hello from hello_world!");
@@ -12,6 +13,7 @@ extern "C" EMSCRIPTEN_KEEPALIVE void hello_world() {
 }
 
 int main() {
+  Reader reader("../input/input.csv");
   Kalman::Filter kalman;
   MCL::Filter mcl;
 
