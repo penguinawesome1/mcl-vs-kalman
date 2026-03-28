@@ -37,3 +37,5 @@ gtest_discover_tests(kalman_test)
 
 add_executable(mcl_app src/main.cpp)
 target_link_libraries(mcl_app PRIVATE loc_logic)
+
+file(COPY "${CMAKE_CURRENT_SOURCE_DIR}/data" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}")
