@@ -1,0 +1,54 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.wrapper {
+    width: 100%;
+    height: 100svh;
+    background-color: burlywood;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#app {
+    height: 90%;
+    aspect-ratio: 1 / 1;
+    background-color: white;
+    border-radius: 10px;
+    border-bottom: 10px dotted antiquewhite;
+}
+
+.mode {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    display: grid;
+    grid-template-columns: 10rem;
+    grid-auto-rows: 5rem;
+    gap: 1rem;
+    align-items: start;
+}
+
+.mode button {
+    all: unset;
+    cursor: pointer;
+    width: 10rem;
+    height: 4rem;
+    background-color: white;
+    border-radius: 10px;
+    border-bottom: 10px dotted antiquewhite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 1.0s ease;
+    user-select: none;
+
+    &:active {
+        transform: TranslateY(10px);
+        border-bottom-color: transparent;
+        height: calc(4rem - 10px);
+    }
+}

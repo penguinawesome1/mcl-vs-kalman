@@ -6,23 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MCL vs. Kalman Demo</title>
     <link rel="icon" type="image/png" href="assets/favicon.png">
-    <script defer>
-        var Module = {
-            onRuntimeInitialized: () => {
-                Module.ccall(
-                    'hello_world', // fn name
-                    null, // return type 
-                    [], // arg types
-                    [] // arg vals
-                );
-            }
-        };
-    </script>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap" rel="stylesheet">
+    <script src="index.js" defer></script>
     <script src="wasm_module.js" defer></script>
 </head>
 
 <body>
-    TEST TEXT
+    <div class="wrapper">
+        <div class="mode">
+            <button id="mcl-btn">Monte Carlo</button>
+            <button id="kalman-btn">Kalman</button>
+        </div>
+        <canvas id="app"></canvas>
+    </div>
 </body>
 
 </html>
