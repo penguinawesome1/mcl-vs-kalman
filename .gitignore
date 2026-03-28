@@ -1,4 +1,5 @@
 build/
 demo/wasm_module.js
 demo/wasm_module.data
+demo/wasm_module.wasm
 .vscode
