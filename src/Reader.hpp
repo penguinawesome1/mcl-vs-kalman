@@ -13,18 +13,17 @@ class Reader {
  public:
   Reader(const fs::path& path) : in_(path) {
     if (!in_) {
-      std::runtime_error("Failed to open path");
+      throw std::runtime_error("Failed to open path");
     }
+    std::string _;
+    std::getline(in_, _); // Throw away header text
   }
 
   auto bake_next_state() -> State {
-    std::string line;
-    std::getline(in_, line);
-    std::stringstream ss(line);
     std::string item;
 
     auto next_num = [&]() {
-      std::getline(ss, item, ',');
+      std::getline(in_, item, ',');
       return std::stod(item);
     };
 
