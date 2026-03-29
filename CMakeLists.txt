@@ -6,12 +6,19 @@ set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_library(loc_logic 
-    src/MCL.cpp 
-    src/Kalman.cpp
+    src/Kalman/Kalman.cpp 
+    src/Kalman/Runner.cpp
+    src/Reader.cpp
+    src/bindings.cpp
 )
 target_include_directories(loc_logic PUBLIC src)
 
 include(FetchContent)
+FetchContent_Declare(
+  Eigen3
+  URL https://gitlab.com/libeigen/eigen/-/archive/3.4.0/eigen-3.4.0.tar.gz
+)
+FetchContent_MakeAvailable(Eigen3)
 FetchContent_Declare(
   googletest
   URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
@@ -19,6 +26,8 @@ FetchContent_Declare(
 # For Windows: Prevent overriding the parent project's compiler/linker settings
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
+
+target_link_libraries(loc_logic PUBLIC Eigen3::Eigen)
 
 enable_testing()
 
@@ -34,10 +43,5 @@ target_link_libraries(
 
 include(GoogleTest)
 gtest_discover_tests(kalman_test)
-
-if(EMSCRIPTEN)
-  add_executable(mcl_app src/main.cpp)
-  target_link_libraries(mcl_app PRIVATE loc_logic)
-endif()
 
 file(COPY "${CMAKE_CURRENT_SOURCE_DIR}/data" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}")
