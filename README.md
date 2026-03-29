@@ -1,6 +1,5 @@
 # Robot Localization: Monte Carlo Localization vs. Kalman Filter
 
-![Build Status](https://github.com/penguinawesome1/mcl-vs-kalman/actions/workflows/cmake-tests.yml/badge.svg)
 ![Build Status](https://github.com/penguinawesome1/mcl-vs-kalman/actions/workflows/deploy.yml/badge.svg)
 
 ## Build and Run Tests
