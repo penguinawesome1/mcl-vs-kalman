@@ -22,6 +22,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          submodules: recursive
 
       - name: Setup emsdk
         uses: mymindstorm/setup-emsdk@v14
@@ -30,7 +32,7 @@ jobs:
           actions-cache-folder: "emsdk-cache"
 
       - name: Compile to WASM
-        run: emcc src/main.cpp src/MCL.cpp src/Kalman.cpp -Isrc -o demo/wasm_module.js -std=c++23 --preload-file data -s EXPORTED_RUNTIME_METHODS='["ccall", "cwrap"]'
+        run: emcc src/bindings.cpp src/Reader.cpp src/Kalman/Kalman.cpp src/Kalman/Runner.cpp src/MCL/MCL.cpp src/MCL/Runner.cpp -Isrc -Ilib/eigen -std=c++2b --bind --preload-file data -s ALLOW_MEMORY_GROWTH=1 -o demo/wasm_module.js
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
